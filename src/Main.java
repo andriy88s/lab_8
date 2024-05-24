@@ -1,15 +1,24 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.io.File;
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scr = new Scanner(System.in);
+        RandomNumberWriter randomNumberWriter = new RandomNumberWriter();
+        RandomNumberReader randomNumberReader = new RandomNumberReader();
+        System.out.println("ВВедіть назву файлу: ");
+        File fileName = new File(scr.nextLine());
+        System.out.println("ВВедіть мінімальне число: ");
+        int minRange = Integer.parseInt(scr.nextLine());
+        System.out.println("ВВедіть максимальне число: ");
+        int maxRange = Integer.parseInt(scr.nextLine());
+        System.out.println("ВВедіть кількість чисел , які будуть генеруватись");
+        int count = Integer.parseInt(scr.nextLine());
+
+        randomNumberWriter.userInput(minRange , maxRange);
+        randomNumberWriter.numberWriter(fileName , minRange , maxRange , count);
+        randomNumberReader.numberReader(fileName);
     }
+
 }
